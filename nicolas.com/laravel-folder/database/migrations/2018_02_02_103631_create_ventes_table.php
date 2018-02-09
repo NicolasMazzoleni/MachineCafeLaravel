@@ -16,8 +16,8 @@ class CreateVentesTable extends Migration
         Schema::create('ventes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('nbsucre');
-            $table->integer('boisson_id');
-            $table->foreign('boisson_id')->references('id')->on('App/Boisson');
+            $table->unsignedInteger('boisson_id');
+            $table->foreign('boisson_id')->references('id')->on('boissons');
             $table->timestamps();
         });
     }
