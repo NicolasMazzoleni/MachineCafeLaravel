@@ -2,35 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Vente;
+
 class VenteController extends Controller
 {
     public function index()
    {
-        $ventes = [
+       $ventes = Vente::orderBy('id', 'ASC')->get();
 
-        "1" => ["date" => '01-01-18',
-        		"heure" => '13:02',
-        		"sucre" =>'2',
-    			"boisson"=> 'cafe'
-    			],
-        "2" => ["date" => '01-01-18',
-        		"heure" => '13:11',
-        		"sucre" =>'2',
-    			"boisson"=> 'the'
-    			],
-        "3" => ["date" => '01-01-18',
-        		"heure" => '13:12',
-        		"sucre" =>'2',
-    			"boisson"=> 'chocolat'
-    			],
-        "4" => ["date" => '01-01-18',
-        		"heure" => '13:22',
-        		"sucre" =>'2',
-    			"boisson"=> 'cafe'
-    			],
-        ];
-        
-    return view('vente', compact('ventes'));
+       $data = ['ventes' => $ventes];
+
+       return view('vente', $data);
+    }
+
+    public function delete($id)
+    {
+        $delete = Vente::find($id);
+        $delete->delete();
+        return redirect('/vente');
     }
 
 }

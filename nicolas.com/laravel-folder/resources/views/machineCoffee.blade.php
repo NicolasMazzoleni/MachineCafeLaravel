@@ -6,7 +6,7 @@
 
 
 @section('name')
-    COFFE LAND
+    COFFEE LAND
 @endsection
 
 
@@ -23,26 +23,27 @@
                 <div class="col-md-12">
                     <select id="selectbasic" name="boisson_id" class="form-control">
                         @foreach ($boissons as $boisson)
-                            <option value = "{{ $boisson->id }}" <tr>{{ $boisson->nom }}</tr></option>
+                            <option value="{{ $boisson->id }}">
+                                <tr>{{ $boisson->nom }}</tr>
+                            </option>
                         @endforeach
                     </select>
 
 
-                <label class="col-md-12 control-label" for="selectbasic"><h3>Choix sucre :</h3></label>
+                    <label class="col-md-12 control-label" for="selectbasic"><h3>Choix sucre :</h3></label>
 
-                    <select id="selectbasic" name="ingredient_id" class="form-control">
-                        @for($i=0; $i <= $ingredients[0]->stock && $i <= 5; $i++)
-                            <option value = "{{ $i }}" <tr>{{ $i }}</tr></option>
-                            @endfor
+                    <select id="selectbasic" name="nbsucre" class="form-control">
+                        @for($i=0; $i <= $ingredients->stock && $i <= 5; $i++)
+                            <option value="{{ $i }}">
+                                <tr>{{ $i }}</tr>
+                            </option>
+                        @endfor
 
                     </select>
-                    <button id="" name="" class="btn btn-success">Commander?</button>
+                    <button  id="" name="" class="btn btn-success">Commander</button>
                 </div>
             </div>
 
         </fieldset>
     </form>
-
-
-
 @endsection()

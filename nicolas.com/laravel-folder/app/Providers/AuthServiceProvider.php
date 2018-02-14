@@ -25,6 +25,23 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        $admins = ["admin", "superadmin"];
+
+        foreach (['admins','showBoisson', 'showIngredients', 'showRecette', 'showMonnayeur'] as $gateName) {
+            Gate::define($gateName, function ($user) use ($admins) {
+                return in_array($user->type, $admins);
+            });
+        }
+
+        Gate::define('showVente', function ($user) {
+            if ($user->type === 'user' or $user->type === 'admin' or $user->type === 'superadmin')
+                return true;
+        });
+
+        Gate::define('showSuperAdminPage', function ($user) {
+                return $user->type === 'superadmin';
+        });
+
+
     }
 }

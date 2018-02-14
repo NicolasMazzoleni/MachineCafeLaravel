@@ -18,7 +18,7 @@
             <tr>
                 <td><h2>{{ $ingredient->nom }}</h2></td>
                 <td>
-                    <a href="/modif/{{$details->id}}" class="btn btn-warning">Modifier</a>
+                    <a href="/ingredients/{{$ingredient->id}}" class="btn btn-warning">Modifier</a>
                     <a href="/boisson/{{$details->id}}/delete-ingredient/{{$ingredient->id}}" class="btn btn-danger">Supprimer</a>
                 </td>
             </tr>

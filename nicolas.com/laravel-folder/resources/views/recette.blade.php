@@ -15,7 +15,7 @@ Liste des recettes
         @foreach ($boissons as $boisson)
             <tr><th>{{ $boisson->nom }}<br><a href="{{ route('details', ['id'=>$boisson->id] )}}" class="btn btn-primary">Details</a><br></br></th></tr>
         @endforeach
-    </table>
+    </table><br><br>
     <legend>Formulaire d'ajout de recette :</legend>
 @endsection
 

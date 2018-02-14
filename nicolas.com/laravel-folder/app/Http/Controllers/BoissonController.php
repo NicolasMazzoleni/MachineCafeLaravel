@@ -11,8 +11,6 @@ use Illuminate\Http\Request;
 
 class BoissonController extends Controller
 {
-
-
     public function index()
     {
         //$boissons = DB::select('SELECT id, nom, prix FROM

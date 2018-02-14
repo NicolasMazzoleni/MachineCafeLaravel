@@ -2,48 +2,59 @@
 
 Route::group([ 'middleware'=>'auth'], function()
 {
-    Route::get('/', 'WelcomeController@index');
+    Route::get('boisson', 'BoissonController@index')->middleware('can:showBoisson');
 
-    Route::get('boisson', 'BoissonController@index');
+    Route::post('boisson', 'BoissonController@form')->middleware('can:showBoisson');
 
-    Route::post('boisson', 'BoissonController@form');
+    Route::get('boissonZA', 'BoissonController@unordered')->middleware('can:showBoisson');
 
-    Route::get('boissonZA', 'BoissonController@unordered');
+    Route::get('boissonPC', 'BoissonController@prixCroissant')->middleware('can:showBoisson');
 
-    Route::get('boissonPC', 'BoissonController@prixCroissant');
+    Route::get('boissonPD', 'BoissonController@prixDecroissant')->middleware('can:showBoisson');
 
-    Route::get('boissonPD', 'BoissonController@prixDecroissant');
+    Route::get('boisson/{id}', 'BoissonController@details')->name('details')->middleware('can:showBoisson');
 
-    Route::get('boisson/{id}', 'BoissonController@details')->name('details');
+    Route::post('boisson/{id}', 'BoissonController@update')->middleware('can:showBoisson');
 
-    Route::post('boisson/{id}', 'BoissonController@update');
+    Route::delete('boisson/{id}', 'BoissonController@delete')->name('boisson.delete')->middleware('can:showBoisson');
 
-    Route::delete('boisson/{id}', 'BoissonController@delete')->name('boisson.delete');
+    Route::get('ingredients', 'IngredientsController@index')->middleware('can:showIngredients');
 
-    Route::get('ingredients', 'IngredientsController@index');
+    Route::post('ingredients', 'IngredientsController@form')->middleware('can:showIngredients');
 
-    Route::post('ingredients', 'IngredientsController@form');
+    Route::get('ingredients/{id}', 'IngredientsController@details')->name('detailsIngredients')->middleware('can:showIngredients');
 
-    Route::get('ingredients/{id}', 'IngredientsController@details')->name('detailsIngredients');
+    Route::post('ingredients/{id}', 'IngredientsController@update')->middleware('can:showIngredients');
 
-    Route::post('ingredients/{id}', 'IngredientsController@update');
+    Route::delete('ingredients/{id}', 'IngredientsController@delete')->name('ingredients.delete')->middleware('can:showIngredients');
 
-    Route::delete('ingredients/{id}', 'IngredientsController@delete')->name('ingredients.delete');
+    Route::get('monnayeur', 'MonnayeurController@index')->middleware('can:showMonnayeur');
 
-    Route::get('monnayeur', 'MonnayeurController@index');
+    Route::get('recette', 'RecetteController@index')->middleware('can:showRecette');
 
-    Route::get('recette', 'RecetteController@index');
+    Route::post('recette', 'RecetteController@form')->middleware('can:showRecette');
 
-    Route::get('vente', 'VenteController@index');
+    Route::get('boisson/{boisson}/delete-ingredient/{ingredient}', 'RecetteController@deleteRecette')->name('recette.delete')->middleware('can:showRecette');
 
-    Route::post('recette', 'RecetteController@form');
+    Route::get('vente', 'VenteController@index')->middleware('can:showVente');
 
-    Route::get('boisson/{boisson}/delete-ingredient/{ingredient}', 'RecetteController@deleteRecette')->name('recette.delete');
+    Route::get('vente/{id}/delete-vente', 'VenteController@delete')->middleware('can:showVente')->middleware('can:showVente');
+
+    Route::get('admin', 'AdminController@index')->middleware('can:showSuperAdminPage');
+
+    Route::get('admin/{id}', 'AdminController@details')->middleware('can:showSuperAdminPage');
+
+    Route::post('admin/{id}', 'AdminController@update')->middleware('can:showSuperAdminPage');
+
+    Route::get('user/{id}/delete-user', 'AdminController@delete')->name('user.delete')->middleware('can:showSuperAdminPage');
+
+
+
 
 });
-
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('machineCoffee', 'MachineCoffeeController');
+
+Route::resource('/', 'MachineCoffeeController');
 ?>

@@ -91,28 +91,38 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Commander <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/boisson">Boissons</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/ingredients">Ingrédients</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/recette">Recette</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/vente">Vente</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="/monnayeur">Monnayeur</a>
-            </li>
-        </ul>
+            @if (auth::user())
+                @if (Gate::allows('admins'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="/boisson">Boissons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ingredients">Ingrédients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="/recette">Recette</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="/monnayeur">Monnayeur</a>
+                    </li>
+                @endif
+                    <li class="nav-item">
+                    <a class="nav-link disabled" href="/vente">Vente</a>
+                </li>
+                @if(Gate::allows('showSuperAdminPage'))
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="/admin">Admin</a>
+                    </li>
+                @endif
+                </ul>
+            @endif
     </div>
     <ul class="nav navbar-nav navbar-right">
         <!-- Authentication Links -->
         @guest
+
             <li><a href="{{ route('login') }}">Login </a></li>
             <li><a href="{{ route('register') }}"> Register</a></li>
         @else
