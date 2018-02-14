@@ -25,6 +25,8 @@ class CreatePrixVente extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('ventes', function (Blueprint $table) {
+            $table->dropColumn('boisson_prix');
+        });
     }
 }
