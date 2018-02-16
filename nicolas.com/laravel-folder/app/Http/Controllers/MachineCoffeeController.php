@@ -14,6 +14,7 @@ class MachineCoffeeController extends Controller
     {
         $boissons = Boisson::orderBy('nom', 'ASC')->get();
 
+
         $ingredients = Ingredient::where('nom', 'sucre')->first();
 
         $data = ['boissons' => $boissons, 'ingredients' => $ingredients];
@@ -32,6 +33,7 @@ class MachineCoffeeController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
     public function store()
     {
 
@@ -45,6 +47,21 @@ class MachineCoffeeController extends Controller
         }
         $vente->nbsucre = request('nbsucre');
         $vente->boisson_prix = $vente->boisson->prix;
+
+
+        $ings = $vente->boisson->ingredients;
+
+        foreach ($ings as $ing) {
+
+            $ing->stock = $ing->stock - $ing->pivot->nbdose;
+            $ing->save();
+        };
+
+        $sucre = $vente->nbsucre;
+        $ingredient = Ingredient::where('nom', 'sucre')->first();
+        $ingredient->stock = $ingredient->stock - $sucre;
+        $ingredient->save();
+
         $vente->save();
 
         return redirect('/');

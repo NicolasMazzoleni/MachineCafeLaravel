@@ -1,7 +1,7 @@
 @extends('templatePages')
 
 @section('title')
-    MACHINE
+    COFFEE LAND
 @endsection
 
 
@@ -22,13 +22,16 @@
                 <label class="col-md-12 control-label" for="selectbasic"><h3>Choix boisson : </h3></label>
                 <div class="col-md-12">
                     <select id="selectbasic" name="boisson_id" class="form-control">
+
                         @foreach ($boissons as $boisson)
+                            @if($boisson->isAvailable() === true)
+
                             <option value="{{ $boisson->id }}">
                                 <tr>{{ $boisson->nom }}</tr>
                             </option>
+                            @endif
                         @endforeach
                     </select>
-
 
                     <label class="col-md-12 control-label" for="selectbasic"><h3>Choix sucre :</h3></label>
 
@@ -40,10 +43,11 @@
                         @endfor
 
                     </select>
-                    <button  id="" name="" class="btn btn-success">Commander</button>
+                    <button id="" name="" class="btn btn-success">Commander</button>
                 </div>
             </div>
 
         </fieldset>
     </form>
+
 @endsection()

@@ -21,7 +21,7 @@
         <div class="form-group">
             <div class="col-md-12">
                 <input id="" name="quantitee" type="number" placeholder="Quantitee" class="form-control input-md"
-                       value="{{$details->stock}}" required>
+                       value="{{$details->stock}}" max="100" required>
             </div>
         </div>
 

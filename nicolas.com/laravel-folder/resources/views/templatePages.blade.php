@@ -11,6 +11,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+    <link rel=' icon' type='image/x-icon' href='/favicon.ico' />
+
 
     <title>@yield('title')</title>
 
@@ -153,7 +155,7 @@
 </nav>
 
 
-<div class="flex-center position-ref full-height">
+<div class="flex-center position-ref">
 
     <div class="content">
         <div class="title m-b-md">
