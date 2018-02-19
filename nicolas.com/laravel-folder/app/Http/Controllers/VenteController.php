@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Vente;
+use Illuminate\Support\Facades\Auth;
 
 class VenteController extends Controller
 {
     public function index()
    {
-       $ventes = Vente::orderBy('id', 'ASC')->get();
+
+       if(auth::user()->type === 'superadmin') {
+           $ventes = Vente::orderBy('id', 'ASC')->get();
+       }
+       else{
+       $ventes = Vente::where('user_id', Auth::id())->get();
+   }
+
+
 
        $data = ['ventes' => $ventes];
 

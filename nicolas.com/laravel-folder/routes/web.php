@@ -38,7 +38,7 @@ Route::group([ 'middleware'=>'auth'], function()
 
     Route::get('vente', 'VenteController@index')->middleware('can:showVente');
 
-    Route::get('vente/{id}/delete-vente', 'VenteController@delete')->middleware('can:showVente')->middleware('can:showVente');
+    Route::get('vente/{id}/delete-vente', 'VenteController@delete')->middleware('can:showVente');
 
     Route::get('admin', 'AdminController@index')->middleware('can:showSuperAdminPage');
 
@@ -47,8 +47,6 @@ Route::group([ 'middleware'=>'auth'], function()
     Route::post('admin/{id}', 'AdminController@update')->middleware('can:showSuperAdminPage');
 
     Route::get('user/{id}/delete-user', 'AdminController@delete')->name('user.delete')->middleware('can:showSuperAdminPage');
-
-
 
 
 });

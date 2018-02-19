@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-    <link rel=' icon' type='image/x-icon' href='/favicon.ico' />
+    <link rel=' icon' type='image/x-icon' href='/favicon.ico'/>
 
 
     <title>@yield('title')</title>
@@ -109,17 +109,17 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="/monnayeur">Monnayeur</a>
                     </li>
-                @endif
                     <li class="nav-item">
-                    <a class="nav-link disabled" href="/vente">Vente</a>
-                </li>
+                        <a class="nav-link disabled" href="/vente">Vente</a>
+                    </li>
+                @endif
                 @if(Gate::allows('showSuperAdminPage'))
                     <li class="nav-item">
                         <a class="nav-link disabled" href="/admin">Admin</a>
                     </li>
                 @endif
-                </ul>
-            @endif
+        </ul>
+        @endif
     </div>
     <ul class="nav navbar-nav navbar-right">
         <!-- Authentication Links -->
