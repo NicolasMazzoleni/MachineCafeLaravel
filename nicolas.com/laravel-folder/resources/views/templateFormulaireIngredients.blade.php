@@ -8,7 +8,7 @@
         <div class="form-group">
             <label class="col-md-12 control-label" for=""></label>
             <div class="col-md-12">
-                <input id="" name="nom" type="text" placeholder="Nom" class="form-control input-md" required>
+                <input id="" name="nom" type="text" placeholder="Nom" class="form-control input-md">
             </div>
         </div>
 
@@ -17,7 +17,7 @@
             <label class="col-md-12 control-label" for=""></label>
             <div class="col-md-12">
                 <input id="" name="quantitee" type="text" placeholder="Quantitée" class="form-control input-md"
-                       required>
+                >
 
             </div>
         </div>
@@ -30,6 +30,16 @@
             </div>
         </div>
 
-
+        @if(count($errors))
+            <div class="form-group">
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error  }}</li>
+                    </ul>
+                    @endforeach
+                </div>
+            </div>
+        @endif
     </fieldset>
 </form>

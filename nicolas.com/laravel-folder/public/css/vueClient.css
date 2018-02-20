@@ -1,0 +1,323 @@
+* {
+	font-family: 'Basic';
+}
+body {
+	background-color: lightgrey;
+}
+#machine {
+	background-image: url('../assets/vue1.png');
+	height: 1024px;
+	width: 768px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#vue2 {
+	background-image: url('../assets/vue2.png');
+	height: 1024px;
+	width: 768px;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* Afficheur */
+#affichageChoix {
+	font-size: 30px;
+	position: center;
+}
+#afficheur {
+	height: 256px;
+}
+#gauche, #droite, #affichageChoix {
+	float: left;
+}
+#affichageChoix {
+	height: 192px; 
+	width: 568px;
+	color: white;
+	margin-top: 30px;
+	padding: 20px;
+}
+#gauche, #droite {
+	width: 100px;
+	height: 100%;
+}
+#btnGauche, #btnDroite{
+	position: relative;
+	top: 91px;
+	left: 13px;
+}
+#chargement {
+	width: 0px;
+	position: absolute;
+	background-color: red;
+	height: 2px;
+	top: 253px;
+}
+.boissons {
+	font-size: 2em;
+}
+/* Fin Afficheur */
+
+#monnayeur, #zoneSucre, #btnValider {
+ height: 365px;
+ float: left;
+}
+
+/* Monnayeur */
+#monnayeur {
+	width: 40%;
+	padding-top: 13px;
+	padding-bottom: 13px;
+	padding-right: 13px;
+}
+#btnMoney {
+	padding-top: 3px;
+	text-align: center;
+	border-radius: 60px 60px 0 0 ;
+	height: 73px;
+	width: 35%;
+	float: left;
+}
+#btnMoney img {
+	display: inline;
+}
+#fente {
+	float: left;
+	height: 73px;
+	width: 30%;
+	padding-top: 23px;
+}
+#fente img{
+	width: 100%;
+}
+#afficheurMonnaie {
+	float: left;
+	margin-top: 13px;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 40px;
+}
+#afficheurMonnaie > img {
+	width: 70%;
+	height: 100%;
+}
+#monnaieUser{
+	position: absolute;
+	text-align: center;
+	margin: 0;
+	padding-top: 3px;
+	font-size: 2em;
+	color: red;
+	width: 154px;
+	text-shadow: 0px 0px 10px red;
+}
+#btnResetMonnaie {
+	float: left;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+	height: 73px;
+}
+#retourMonnaie {
+	float: left;
+	width: 100%;
+	text-align: center;
+	height: 50%;
+	margin-top: 31px;
+}
+#retourMonnaie img {
+	display: inline;
+	width: 50%;
+}
+#moneyForm {
+	z-index: 100;
+	border-radius: 0 100px 100px 100px;
+	margin-left: auto;
+	height: 190px;
+	width: 768px;
+	margin-top: 342px;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 20px;
+	font-size: 20px;
+	text-align: center;
+	color: white;
+	position: absolute;
+}
+.backgroundGrey {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+.hidden {
+	display: none;
+}
+.coins {
+	float: left;
+	margin-top: 19px;
+	width: 15%;
+	border-radius: 100%;
+	margin-left: 10px;
+	display: inline;
+}
+
+
+/* Fin Monnayeur */
+
+#btnValider {
+	width: 20%;
+}
+#btnValider img {
+	width: 100%;
+}
+
+/* Zone Sucre */
+#zoneSucre {
+	margin-left: 27%;
+	padding: 13px;
+}
+#btnMoins, #btnPlus {
+	height: 20%;
+}
+#ledSucres {
+	padding-top: 20px;
+	padding-left: 10px;
+	height: 60%;
+}
+/* Fin Zone Sucre */
+
+/* Gobelet */
+#gobelet {
+    padding-top: 4%;
+    left: 37%;
+    margin-top: 84px;
+    background-color: black;
+    border: 10px solid rgba(255, 255, 255, 1);
+    border-top: none;
+    background-image:url('../assets/fond.png');
+    opacity: 0.35;
+    float: left;
+    margin-left: 130px;
+    width: 26%;
+    height: 239px;
+}
+
+/* Couche ingrédient*/
+.ingredients {
+	width: 100%;
+	height: 0;
+}
+
+#Lait {
+	background-color: white;
+
+	margin-top: 198px;
+}
+#Eau {
+	background-color: blue;
+
+}
+#Chocolat {
+	background-color: brown;
+
+}
+#Café {
+	background-color: darkorange;
+
+}
+#Thé {
+	background-color: cyan;
+
+}
+#Sucre {
+	background-color: lightgrey;
+
+}
+
+/* fin gobelet */
+
+/* vue2 */
+.maintenance {
+	float: left;
+	width: 20%;
+	height: 330px;
+}
+.maintenance img {
+	margin-top: 170px;
+	margin-left: 70px;
+}
+
+#coinsCounter {
+	padding: 20px;
+	height: 226px;
+}
+.compteur {
+	height: 100%;
+	float: left;
+	width: 15%;
+	margin-left: 10px;
+	text-align: center;
+}
+.compteur img {
+	width: 100%;
+	margin-bottom: 13px;
+}
+.displayCount {
+	position: relative;
+	font-size: 2em;
+	color: red;
+	top: -68px;
+	text-shadow: 0 0 10px red;
+}
+
+.displayIng {
+	font-size: 1.2em;
+	color: red;
+	margin-top: 20px;
+	margin-left: -66px;
+	float: left
+}
+
+#ingredientsCounter {
+	padding: 13px;
+	height: 260px;
+}
+
+.compteurIngredients {
+	float: left;
+	width: 15%;
+	margin-left: 5%;
+	margin-right: 5%;
+	border-radius: 5px;
+}
+
+#ingredientsCounter img {
+	margin-top: 10px;
+	margin-left: 77px;
+	float: left;
+}
+
+#affichIng img {
+	margin-left: 60px;
+	float: left;
+}
+
+ #imgCafe {
+	margin-left: 10px;
+
+}
+
+
+#the {
+	background-color: rgb(117,86,56);
+}
+
+#chocolat {
+	background-color: rgb(47,29,15);
+}
+
+#capuccino {
+	background-color: rgb(254, 252, 255);
+}
+
+#cafe {
+	background-color: rgb(208, 240, 192);
+}
+
+/* fin vue 2 */

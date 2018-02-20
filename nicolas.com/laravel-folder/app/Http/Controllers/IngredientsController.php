@@ -19,6 +19,13 @@ class IngredientsController extends Controller
 
 	public function form()
     {
+
+        $this->validate(request(), [
+
+            'nom' => 'required',
+            'quantitee' => 'required'
+        ]);
+
         $nom = request('nom');
         $quantitee = request('quantitee');
         Ingredient::create(['nom' => $nom, 'stock' => $quantitee]);

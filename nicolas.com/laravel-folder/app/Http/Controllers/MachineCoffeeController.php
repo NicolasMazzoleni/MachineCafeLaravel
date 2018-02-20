@@ -18,7 +18,7 @@ class MachineCoffeeController extends Controller
         $ingredients = Ingredient::where('nom', 'sucre')->first();
 
         $data = ['boissons' => $boissons, 'ingredients' => $ingredients];
-        return view('machineCoffee', $data);
+        return view('welcome', $data);
     }
 
 
@@ -36,6 +36,13 @@ class MachineCoffeeController extends Controller
 
     public function store()
     {
+        $this->validate(request(), [
+
+            'boisson_id' => 'required',
+            'nbsucre' => 'required'
+
+        ]);
+
 
         $boisson = Boisson::find(request('boisson_id'));
         $vente = new Vente;

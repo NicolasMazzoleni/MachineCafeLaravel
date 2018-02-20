@@ -24,6 +24,13 @@ class BoissonController extends Controller
 
     public function form()
     {
+
+        $this->validate(request(), [
+
+            'nom' => 'required',
+            'prix' => 'required'
+        ]);
+
         $nom = request('nom');
         $prix = request('prix');
         Boisson::create(['nom' => $nom, 'prix' => $prix]);
