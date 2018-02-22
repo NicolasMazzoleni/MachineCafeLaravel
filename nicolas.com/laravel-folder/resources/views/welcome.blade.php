@@ -11,17 +11,16 @@
     <link rel="stylesheet" type="text/css" href="css/vueClient.css">
     <link href='https://fonts.googleapis.com/css?family=Basic' rel='stylesheet'>
 
+    <script>
+        var currentStockSucre ={{$currentStockSucre}};
+        var boissons ={!! $boissons->toJson() !!};
+
+    </script>
     <script type="text/javascript" src="js/buttons.js"></script>
     <script type="text/javascript" src="js/zoneSucres.js"></script>
     <script type="text/javascript" src="js/selectDrink.js"></script>
     <script type="text/javascript" src="js/gestionStockDrinks.js"></script>
     <script type="text/javascript" src="js/monnayeur_V3.js"></script>
-    <script>
-        var currentStockSucre ={{$currentStockSucre}};
-        var boissons ={!! $boissons->toJson() !!};
-
-        console.log(boissons);
-    </script>
 
 </head>
 
@@ -135,20 +134,14 @@
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-12 control-label" for="selectbasic"><h3>Choix boisson : </h3></label>
+
             <div class="col-md-12">
 
+                <input type="hidden" id="selectbasic" name="boisson_id" class="choixBoisson form-control">
                 <input type="hidden" min="0" max="{{$currentStockSucre}}" class="choixSucre form-control" name="nbsucre">
                 </input>
 
-                <input type="number" id="selectbasic" name="boisson_id" class="choixBoisson form-control">
 
-                    @foreach ($boissons as $boisson)
-
-                            <option value="{{ $boisson->id }}">
-                                <tr>{{ $boisson->nom }}</tr>
-                            </option>
-                    @endforeach
                 </input>
             </div>
         </div>

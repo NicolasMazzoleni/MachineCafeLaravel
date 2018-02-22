@@ -22,7 +22,10 @@ class MachineCoffeeController extends Controller
             $currentStockSucre = 5;
         };
 
-        $data = ['boissons' => $boissons, 'ingredients' => $ingredients, 'currentStockSucre' => $currentStockSucre];
+        $data = ['boissons' => $boissons,
+            'ingredients' => $ingredients,
+            'currentStockSucre' => $currentStockSucre];
+
         return view('welcome', $data);
     }
 
