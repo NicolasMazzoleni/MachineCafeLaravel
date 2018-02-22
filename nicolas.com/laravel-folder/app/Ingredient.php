@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingredient extends Model
 {
-    //
     protected $fillable = ['nom', 'stock'];
 
     public function boissons()

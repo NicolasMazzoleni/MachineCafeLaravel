@@ -113,11 +113,11 @@
                         @endif
                         <a class="nav-link disabled" href="/vente">Vente</a>
                     </li>
-                @if(Gate::allows('showSuperAdminPage'))
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="/admin">Admin</a>
-                    </li>
-                @endif
+                    @if(Gate::allows('showSuperAdminPage'))
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/admin">Admin</a>
+                        </li>
+                    @endif
         </ul>
         @endif
     </div>

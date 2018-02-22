@@ -33,6 +33,7 @@ function indexBoissons(niveaux) {
 }
 
 function affichageChoix() {
+    console.log(iBoissons, iBoissons%4 );
     let choix = drinks[iBoissons%4];
     $('.boissons').html(choix +'<br />' + objBoissons[choix].prix + '0€');
     return drinks[iBoissons%4];
@@ -76,7 +77,7 @@ function remplissageGob(choix) {
                         $('#Lait').animate({height: (stratLait)+'px'}, function() {
 
                             $('.ingredients').fadeTo(1000, 0.5, function() {
-                                
+
                                  $('.boissons').html('Servez vous !');
                                  $('.ingredients').css('background-color', 'brown');
                             })
@@ -103,7 +104,7 @@ $(document).ready(function(){
     $('#btnDroite').click(function() {
         indexBoissons('plus');
         });
-    
+
     $('#btnGauche').click(function() {
         indexBoissons('moins');
         });
@@ -111,7 +112,7 @@ $(document).ready(function(){
     $('#btnValider img').click(function() {
 
         if ($('#chargement').width() == 0) {
-    	   validerChoix();    
+    	   validerChoix();
         }
     });
 
@@ -125,7 +126,7 @@ $(document).ready(function(){
             $('.ingredients').css('background-color', '').fadeTo(0, 1);
         }
     });
-    
+
 });
 
 

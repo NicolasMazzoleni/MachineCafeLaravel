@@ -11,6 +11,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 #vue2 {
 	background-image: url('../assets/vue2.png');
 	height: 1024px;
@@ -163,7 +164,7 @@ body {
 #btnValider {
 	width: 20%;
 }
-#btnValider img {
+#btnValider input {
 	width: 100%;
 }
 

@@ -12,12 +12,17 @@ class MachineCoffeeController extends Controller
 {
     public function index()
     {
-        $boissons = Boisson::orderBy('nom', 'ASC')->get();
-
+        $boissons = Boisson::orderBy('nom', 'ASC')->get()->filter(function($boisson){
+            return $boisson->isAvailable();
+        });
 
         $ingredients = Ingredient::where('nom', 'sucre')->first();
+        $currentStockSucre = Ingredient::where('nom', 'sucre')->first()->stock;
+        if ($currentStockSucre > 5) {
+            $currentStockSucre = 5;
+        };
 
-        $data = ['boissons' => $boissons, 'ingredients' => $ingredients];
+        $data = ['boissons' => $boissons, 'ingredients' => $ingredients, 'currentStockSucre' => $currentStockSucre];
         return view('welcome', $data);
     }
 
